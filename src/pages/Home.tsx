@@ -4,73 +4,23 @@ import { motion } from 'framer-motion';
 import { ArrowRightIcon, CheckIcon, QuoteIcon } from 'lucide-react';
 import { BRAND, IMAGES, SERVICES, SECTORS, STATS, PROCESS, TESTIMONIALS, CLIENT_LOGOS } from '../data/site';
 import { Section, SectionHeading, Reveal, PrimaryButton, GhostButton, Eyebrow } from '../components/ui';
+import { Component as LunarGravityCard } from '../components/ui/lunar-gravity-card';
 import { CTABand } from '../components/CTABand';
 
 export function Home() {
   return (
     <div className="w-full bg-white">
       {/* Hero */}
-      <section className="relative w-full overflow-hidden bg-white">
-        <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-[42%] rounded-bl-[9rem] bg-envic-50 lg:block" />
-        <div className="dotted-ring pointer-events-none absolute -left-20 top-40 h-64 w-64 rounded-full opacity-[0.10]" />
-
-        <div className="relative mx-auto grid w-full max-w-7xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16 lg:py-24">
-          <div>
-            <Eyebrow>Colombo · Serving UK &amp; US</Eyebrow>
-            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.04] tracking-tight text-ink sm:text-5xl lg:text-[4rem]">
-              A leading BPO for{' '}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-envic-600">growing</span>
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute bottom-1.5 left-0 z-0 h-3 w-full origin-left rounded bg-envic-200" />
-                
-              </span>{' '}
-              UK &amp; US businesses
-            </h1>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-ink-muted">
-              Based in Sri Lanka, we deliver high-quality back-office solutions, lead generation and
-              customer support for energy, telecom and home improvement companies — built to lift
-              satisfaction and drive measurable growth.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <PrimaryButton to="/contact">Book a call</PrimaryButton>
-              <GhostButton to="/services">Explore services</GhostButton>
-            </div>
-            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
-              {['Live in 3–4 weeks', 'GDPR-aligned delivery', 'From 2 agents up'].map((item) =>
-              <li key={item} className="flex items-center gap-2 text-sm font-medium text-ink-muted">
-                  <CheckIcon className="h-4 w-4 text-envic-500" />
-                  {item}
-                </li>
-              )}
-            </ul>
-          </div>
-
-          <div className="relative">
-            <motion.img
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              src={IMAGES.hero}
-              alt="ENVIC Global team members collaborating in the Colombo office"
-              className="aspect-[4/5] w-full rounded-[2.75rem] object-cover shadow-lift" />
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
-              className="absolute -bottom-6 left-4 flex items-center gap-4 rounded-3xl bg-white px-5 py-4 shadow-lift ring-1 ring-ink-line sm:left-6">
-              
-              <img src={BRAND.mascot} alt="" className="h-12 w-12 object-contain" />
-              <div>
-                <p className="font-display text-sm font-bold text-ink">96% average CSAT</p>
-                <p className="text-xs text-ink-muted">across all live accounts</p>
-              </div>
-            </motion.div>
-          </div>
+      <section className="w-full relative">
+        <LunarGravityCard className="!min-h-[calc(100vh-80px)]" />
+        <div
+          className="absolute top-6 right-6 md:top-8 md:right-8 w-10 h-10 bg-envic-50/50 hover:bg-envic-100 border border-envic-200 rounded-full flex items-center justify-center z-50 text-envic-600 backdrop-blur-md transition-all hover:scale-110 shadow-sm"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            <path d="M2 12h20"></path>
+          </svg>
         </div>
       </section>
 
