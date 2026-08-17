@@ -35,31 +35,49 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
-          {NAV.map((item) =>
-          <NavLink
-            key={item.to}
-            to={item.to}
-            end={item.to === '/'}
-            className={({ isActive }) =>
-            `relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-            isActive ? 'text-envic-600' : 'text-ink-muted hover:text-ink'}`
-
-            }>
-            
-              {({ isActive }) =>
-            <>
-                  {item.label}
-                  {isActive &&
-              <motion.span
-                layoutId="nav-pill"
-                className="absolute inset-0 -z-10 rounded-full bg-envic-50"
-                transition={{ type: 'spring', stiffness: 400, damping: 32 }} />
-
-              }
-                </>
-            }
-            </NavLink>
-          )}
+          {NAV.map((item) => (
+            <div key={item.to} className="group relative">
+              <NavLink
+                to={item.to}
+                end={item.to === '/'}
+                className={({ isActive }) =>
+                `relative rounded-full px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 ${
+                isActive ? 'text-envic-600' : 'text-ink-muted hover:text-ink'}`
+                }>
+                {({ isActive }) => (
+                  <>
+                    {item.label}
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-pill"
+                        className="absolute inset-0 -z-10 rounded-full bg-envic-50"
+                        transition={{ type: 'spring', stiffness: 400, damping: 32 }} />
+                    )}
+                  </>
+                )}
+              </NavLink>
+              {item.children && (
+                <div className="absolute left-0 top-full hidden w-56 pt-2 group-hover:block">
+                  <div className="rounded-xl border border-ink-line bg-white py-2 shadow-lift">
+                    {item.children.map((child) => (
+                      <NavLink
+                        key={child.to}
+                        to={child.to}
+                        end={child.to === '/partners'}
+                        className={({ isActive }) =>
+                          `block px-4 py-2 text-sm font-medium transition-colors ${
+                            isActive ? 'bg-envic-50 text-envic-600' : 'text-ink-muted hover:bg-ink-bg hover:text-ink'
+                          }`
+                        }
+                      >
+                        {child.label}
+                      </NavLink>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -93,21 +111,37 @@ export function Header() {
           
             <nav aria-label="Mobile" className="mx-auto max-w-7xl px-5 py-4 sm:px-8">
               <ul className="flex flex-col">
-                {NAV.map((item) =>
-              <li key={item.to}>
+                {NAV.map((item) => (
+                  <li key={item.to}>
                     <NavLink
-                  to={item.to}
-                  end={item.to === '/'}
-                  className={({ isActive }) =>
-                  `block border-b border-ink-line/70 py-3.5 font-display text-lg font-semibold ${
-                  isActive ? 'text-envic-600' : 'text-ink'}`
-
-                  }>
-                  
+                      to={item.to}
+                      end={item.to === '/'}
+                      className={({ isActive }) =>
+                      `block ${item.children ? 'pt-3.5 pb-1 border-none' : 'border-b border-ink-line/70 py-3.5'} font-display text-lg font-semibold ${
+                      isActive ? 'text-envic-600' : 'text-ink'}`
+                      }>
                       {item.label}
                     </NavLink>
+                    {item.children && (
+                      <ul className="ml-4 flex flex-col border-b border-ink-line/70 pb-2">
+                        {item.children.map((child) => (
+                          <li key={child.to}>
+                            <NavLink
+                              to={child.to}
+                              end={child.to === '/partners'}
+                              onClick={() => setOpen(false)}
+                              className={({ isActive }) =>
+                              `block py-2 font-display text-base font-medium ${
+                              isActive ? 'text-envic-600' : 'text-ink-muted'}`
+                              }>
+                              {child.label}
+                            </NavLink>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
-              )}
+                ))}
               </ul>
               <Link
               to="/contact"

@@ -8,6 +8,9 @@ import { About } from './pages/About';
 import { Services } from './pages/Services';
 import { Clients } from './pages/Clients';
 import { Partners } from './pages/Partners';
+import { Motorlogist } from './pages/Motorlogist';
+import { Rcm } from './pages/Rcm';
+import { Siraawata } from './pages/Siraawata';
 import { Contact } from './pages/Contact';
 import { NotFound } from './pages/NotFound';
 
@@ -32,6 +35,9 @@ export function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/clients" element={<Clients />} />
             <Route path="/partners" element={<Partners />} />
+            <Route path="/partners/motorlogist" element={<Motorlogist />} />
+            <Route path="/partners/rcm" element={<Rcm />} />
+            <Route path="/partners/siraawata" element={<Siraawata />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

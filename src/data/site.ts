@@ -39,7 +39,16 @@ export const NAV = [
 { label: 'About Us', to: '/about' },
 { label: 'Our Services', to: '/services' },
 { label: 'Our Clients', to: '/clients' },
-{ label: 'Partners', to: '/partners' },
+{ 
+  label: 'Partners', 
+  to: '/partners',
+  children: [
+    { label: 'Partnership Models', to: '/partners' },
+    { label: 'ENVIC Motorlogist', to: '/partners/motorlogist' },
+    { label: 'ENVIC RCM', to: '/partners/rcm' },
+    { label: 'Siraawata', to: '/partners/siraawata' }
+  ]
+},
 { label: 'Contact', to: '/contact' }];
 
 

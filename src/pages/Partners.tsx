@@ -110,6 +110,36 @@ export function Partners() {
         </div>
       </Section>
 
+      <Section className="bg-white">
+        <SectionHeading
+          align="center"
+          eyebrow="Clients Testimonials"
+          title="What Our Customers Say About ENVIC Global" 
+        />
+        <div className="mt-14 grid gap-5 lg:grid-cols-4 sm:grid-cols-2">
+          {[
+            { name: 'Abishek Rathode', role: 'Manager Claims', rating: '4.8' },
+            { name: 'Michael Joseph', role: 'Director Operations', rating: '4.9' },
+            { name: 'Robert Webstar', role: 'Head of Center', rating: '4.7' },
+            { name: 'Ben Mark', role: 'Director Client Services', rating: '4.7' }
+          ].map((t, i) => (
+            <Reveal key={t.name} delay={i * 0.08}>
+              <figure className="flex h-full flex-col rounded-3xl border border-ink-line bg-ink-bg p-8 items-center text-center">
+                <div className="text-envic-500 font-bold text-xl mb-4">{t.rating} / 5 Stars</div>
+                <figcaption className="mt-auto pt-5">
+                  <p className="font-display text-sm font-bold text-ink">{t.name}</p>
+                  <p className="text-xs text-ink-muted">{t.role}</p>
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+        
+        <div className="mt-20 text-center">
+          <SectionHeading align="center" eyebrow="Popular Clients" title="We’ve 15+ Global Premium Clients" />
+        </div>
+      </Section>
+
       <CTABand
         title="Let's talk about your client pipeline."
         body="Tell us what your clients keep asking for. We'll show you how a partnership would work commercially and operationally." />
