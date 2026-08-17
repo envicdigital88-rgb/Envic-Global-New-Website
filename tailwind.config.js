@@ -38,6 +38,15 @@ export default {
         soft: '0 20px 60px -30px rgba(31, 34, 32, 0.35)',
         lift: '0 30px 80px -40px rgba(31, 34, 32, 0.45)',
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        }
+      },
+      animation: {
+        marquee: 'marquee 30s linear infinite',
+      }
     },
   },
   plugins: [],

@@ -31,6 +31,7 @@ const RealisticMoon = ({ onClick }: { onClick?: () => void }) => {
         map={colorMap} 
         bumpMap={colorMap} 
         bumpScale={0.02} 
+        color="#22c55e"
         roughness={0.8}
         metalness={0.1}
       />
@@ -365,12 +366,21 @@ const AsteroidBelt = ({ ringState, massiveAsteroidsRef }: { ringState: 'hidden' 
 
 export interface LunarGravityCardProps {
   className?: string;
+  eyebrow?: React.ReactNode;
   title?: React.ReactNode;
   description?: React.ReactNode;
 }
 
 export default function LunarGravityCard({ 
   className,
+  eyebrow = (
+    <div className="flex items-center gap-3 mb-6">
+      <div className="h-[2px] w-8 bg-envic-500 rounded-full" />
+      <span className="font-display text-sm md:text-base font-bold tracking-[0.25em] text-envic-600 uppercase drop-shadow-sm">
+        Envic Global
+      </span>
+    </div>
+  ),
   title = (
     <>
       <span className="text-envic-600 drop-shadow-sm">Global</span>
@@ -392,6 +402,7 @@ export default function LunarGravityCard({
 
       {/* Text Container aligned with standard max-w-7xl layout */}
       <div className="w-full md:w-[50%] flex flex-col justify-center px-6 py-20 sm:px-12 md:pl-[max(3rem,calc((100vw-80rem)/2+2rem))] relative z-20 pointer-events-none">
+        {eyebrow}
         <h2 className="text-[4rem] sm:text-[5rem] md:text-[6rem] lg:text-[7rem] font-extrabold tracking-tighter leading-[0.9] mb-8">
           {title}
         </h2>

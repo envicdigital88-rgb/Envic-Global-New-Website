@@ -25,17 +25,21 @@ export function Home() {
       </section>
 
       {/* Logo strip */}
-      <section className="w-full border-y border-ink-line bg-white py-8">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+      <section className="w-full border-y border-ink-line bg-white py-8 overflow-hidden">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 mb-6">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-ink-muted">
             Trusted by teams across energy, telecom and home improvement
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-            {CLIENT_LOGOS.map((name) =>
-            <span key={name} className="font-display text-base font-semibold text-ink/35">
+        </div>
+        
+        {/* Infinite Marquee Container */}
+        <div className="relative flex w-full overflow-hidden">
+          <div className="flex w-max animate-marquee gap-x-16 px-8 hover:[animation-play-state:paused]">
+            {[...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS].map((name, i) => (
+              <span key={`${i}-${name}`} className="font-display text-base md:text-lg font-semibold text-ink/35 whitespace-nowrap">
                 {name}
               </span>
-            )}
+            ))}
           </div>
         </div>
       </section>
