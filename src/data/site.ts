@@ -44,7 +44,6 @@ export const NAV = [
   to: '/partners',
   children: [
     { label: 'Partnership Models', to: '/partners' },
-    { label: 'ENVIC Motorlogist', to: '/partners/motorlogist' },
     { label: 'ENVIC RCM', to: '/partners/rcm' },
     { label: 'Siraawata', to: '/partners/siraawata' }
   ]

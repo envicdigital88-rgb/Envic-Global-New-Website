@@ -30,7 +30,7 @@ export function Header() {
       
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link to="/" className="flex items-center gap-3" aria-label={`${BRAND.name} home`}>
-          <img src={BRAND.logo} alt="" className="h-9 w-auto" />
+          <img src={BRAND.logo} alt="" className="h-14 w-auto" />
           <span className="sr-only">{BRAND.name}</span>
         </Link>
 

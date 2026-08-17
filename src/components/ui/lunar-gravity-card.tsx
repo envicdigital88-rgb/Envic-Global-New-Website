@@ -373,24 +373,16 @@ export interface LunarGravityCardProps {
 
 export default function LunarGravityCard({ 
   className,
-  eyebrow = (
-    <div className="flex items-center gap-3 mb-6">
-      <div className="h-[2px] w-8 bg-envic-500 rounded-full" />
-      <span className="font-display text-sm md:text-base font-bold tracking-[0.25em] text-envic-600 uppercase drop-shadow-sm">
-        Envic Global
-      </span>
-    </div>
-  ),
   title = (
     <>
-      <span className="text-envic-600 drop-shadow-sm">Global</span>
-      <br />
-      <span className="text-transparent bg-clip-text bg-gradient-to-b from-envic-400 via-envic-500 to-envic-700 drop-shadow-md">
-        Outsourcing.
+      <span className="text-ink">Leading BPO</span>
+      <br className="hidden lg:block" />{" "}
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-envic-400 via-envic-500 to-envic-600 drop-shadow-sm">
+        Solutions.
       </span>
     </>
   ),
-  description = "A leading BPO for growing UK & US businesses. Based in Sri Lanka, we deliver high-quality back-office solutions."
+  description = "ENVIC Global is a premier Sri Lanka-based BPO empowering UK and US businesses. We deliver reliable back-office, lead generation, and customer support tailored for the energy, telecom, and home improvement sectors."
 }: LunarGravityCardProps) {
   const [ringState, setRingState] = useState<'hidden' | 'animating' | 'visible'>('visible');
   const massiveAsteroidsRef = useRef<Float32Array>(new Float32Array(75 * 4));
@@ -402,11 +394,10 @@ export default function LunarGravityCard({
 
       {/* Text Container aligned with standard max-w-7xl layout */}
       <div className="w-full md:w-[50%] flex flex-col justify-center px-6 py-20 sm:px-12 md:pl-[max(3rem,calc((100vw-80rem)/2+2rem))] relative z-20 pointer-events-none">
-        {eyebrow}
-        <h2 className="text-[4rem] sm:text-[5rem] md:text-[6rem] lg:text-[7rem] font-extrabold tracking-tighter leading-[0.9] mb-8">
+        <h2 className="text-[4rem] sm:text-[5rem] lg:text-[6rem] font-extrabold tracking-tight leading-[1] mb-6 max-w-[700px]">
           {title}
         </h2>
-        <p className="text-lg md:text-xl text-ink-muted font-medium leading-relaxed max-w-[420px]">
+        <p className="text-lg md:text-xl text-ink-muted font-medium leading-relaxed max-w-[500px]">
           {description}
         </p>
       </div>
