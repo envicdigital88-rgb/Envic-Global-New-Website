@@ -1,5 +1,6 @@
 import React from 'react';
-import { CheckIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { CheckIcon, ArrowUpRightIcon, ExternalLinkIcon } from 'lucide-react';
 import { PARTNER_TYPES, IMAGES, BRAND } from '../data/site';
 import { Section, SectionHeading, Reveal, PageHero, PrimaryButton } from '../components/ui';
 import { CTABand } from '../components/CTABand';
@@ -19,6 +20,29 @@ const BENEFITS = [
 'Delivery reporting you can pass straight to your client',
 'Rapid recruitment — most pods live within four weeks'];
 
+const PARTNER_DIVISIONS = [
+  {
+    title: 'ENVIC Digital',
+    tagline: 'Technology & Web Division',
+    description: 'Modern websites, custom software, digital branding, automation and AI solutions powering ambitious businesses.',
+    url: 'https://www.envicdigital.com/',
+    isExternal: true,
+    localPath: '/partners/digital'
+  },
+  {
+    title: 'ENVIC RCM',
+    tagline: 'Healthcare Financial Solutions',
+    description: 'Revenue Cycle Management bringing over 15 years of expertise to improve practice profitability and claim accuracy.',
+    localPath: '/partners/rcm'
+  },
+  {
+    title: 'Siraawata',
+    tagline: 'Digital Business Directory',
+    description: 'Sri Lanka’s complete digital business ecosystem bringing local businesses, services, and customers together.',
+    localPath: '/partners/siraawata'
+  }
+];
+
 
 export function Partners() {
   return (
@@ -28,7 +52,60 @@ export function Partners() {
         title="Add offshore delivery to what you already sell"
         body="Agencies, consultancies and platforms partner with ENVIC Global to give their clients capacity without building an operation of their own."
         image={IMAGES.about} />
-      
+
+      <Section className="bg-ink-bg">
+        <SectionHeading
+          eyebrow="Partner Ecosystem"
+          title="Our Partner Brands & Divisions"
+          body="Explore specialized divisions and sister platforms powered by ENVIC Global."
+          align="center"
+        />
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {PARTNER_DIVISIONS.map((div, i) => (
+            <Reveal key={div.title} delay={i * 0.08}>
+              <article className="flex h-full flex-col justify-between rounded-3xl border border-ink-line bg-white p-7 transition-all hover:border-envic-300 hover:shadow-soft">
+                <div>
+                  <span className="inline-block rounded-full bg-envic-50 px-3 py-1 text-xs font-semibold text-envic-700">
+                    {div.tagline}
+                  </span>
+                  <h3 className="mt-4 font-display text-2xl font-bold text-ink">{div.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">{div.description}</p>
+                </div>
+                <div className="mt-8 pt-4 border-t border-ink-line flex items-center justify-between">
+                  {div.isExternal ? (
+                    <a
+                      href={div.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-envic-600 hover:text-envic-700"
+                    >
+                      <span>Visit Website</span>
+                      <ExternalLinkIcon className="h-4 w-4" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={div.localPath}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-envic-600 hover:text-envic-700"
+                    >
+                      <span>Learn More</span>
+                      <ArrowUpRightIcon className="h-4 w-4" />
+                    </Link>
+                  )}
+                  {div.isExternal && (
+                    <Link
+                      to={div.localPath}
+                      className="text-xs text-ink-muted hover:underline"
+                    >
+                      Overview
+                    </Link>
+                  )}
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
 
       <Section className="bg-white">
         <SectionHeading

@@ -113,13 +113,9 @@ export function PageHero({
   eyebrow,
   title,
   body,
-  image
-
-
-
-
-
-}: {eyebrow: string;title: string;body: string;image?: string;}) {
+  image,
+  imageClassName = "aspect-[4/3] object-cover"
+}: {eyebrow: string;title: string;body: string;image?: string;imageClassName?: string;}) {
   return (
     <section className="relative w-full overflow-hidden bg-ink-bg">
       <div className="dotted-ring pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-[0.12]" />
@@ -137,7 +133,7 @@ export function PageHero({
             <img
             src={image}
             alt=""
-            className="relative aspect-[4/3] w-full rounded-4xl object-cover shadow-soft" />
+            className={`relative w-full rounded-4xl shadow-soft ${imageClassName}`} />
           
           </div>
         }

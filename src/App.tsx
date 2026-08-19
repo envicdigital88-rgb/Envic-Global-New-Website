@@ -10,6 +10,7 @@ import { Clients } from './pages/Clients';
 import { Partners } from './pages/Partners';
 import { Rcm } from './pages/Rcm';
 import { Siraawata } from './pages/Siraawata';
+import { EnvicDigital } from './pages/EnvicDigital';
 import { Contact } from './pages/Contact';
 import { NotFound } from './pages/NotFound';
 
@@ -36,6 +37,7 @@ export function App() {
             <Route path="/partners" element={<Partners />} />
             <Route path="/partners/rcm" element={<Rcm />} />
             <Route path="/partners/siraawata" element={<Siraawata />} />
+            <Route path="/partners/digital" element={<EnvicDigital />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

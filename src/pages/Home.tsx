@@ -36,7 +36,7 @@ export function Home() {
         <div className="relative flex w-full overflow-hidden">
           <div className="flex w-max animate-marquee gap-x-16 px-8 hover:[animation-play-state:paused]">
             {[...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS].map((name, i) => (
-              <span key={`${i}-${name}`} className="font-display text-base md:text-lg font-semibold text-ink/35 whitespace-nowrap">
+              <span key={`${i}-${name}`} className="font-display text-base md:text-lg font-semibold whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300">
                 {name}
               </span>
             ))}

@@ -35,20 +35,22 @@ export const IMAGES = {
 };
 
 export const NAV = [
-{ label: 'Home', to: '/' },
-{ label: 'About Us', to: '/about' },
-{ label: 'Our Services', to: '/services' },
-{ label: 'Our Clients', to: '/clients' },
-{ 
-  label: 'Partners', 
-  to: '/partners',
-  children: [
-    { label: 'Partnership Models', to: '/partners' },
-    { label: 'ENVIC RCM', to: '/partners/rcm' },
-    { label: 'Siraawata', to: '/partners/siraawata' }
-  ]
-},
-{ label: 'Contact', to: '/contact' }];
+  { label: 'Home', to: '/' },
+  { label: 'About Us', to: '/about' },
+  { label: 'Our Services', to: '/services' },
+  { label: 'Our Clients', to: '/clients' },
+  { 
+    label: 'Partners', 
+    to: '/partners',
+    children: [
+      { label: 'Partnership Models', to: '/partners' },
+      { label: 'ENVIC RCM', to: '/partners/rcm' },
+      { label: 'Siraawata', to: '/partners/siraawata' },
+      { label: 'ENVIC Digital', to: '/partners/digital', href: 'https://www.envicdigital.com/', external: true }
+    ]
+  },
+  { label: 'Contact', to: '/contact' }
+];
 
 
 export type Service = {

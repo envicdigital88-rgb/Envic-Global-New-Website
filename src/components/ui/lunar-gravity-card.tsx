@@ -4,6 +4,8 @@ import React, { useRef, useMemo, Suspense, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useTexture, Environment } from "@react-three/drei";
 import * as THREE from "three";
+import { Link } from "react-router-dom";
+import { ArrowUpRightIcon } from "lucide-react";
 import { cn } from "../../lib/utils";
 
 const RADIUS = 2.0;
@@ -375,10 +377,10 @@ export default function LunarGravityCard({
   className,
   title = (
     <>
-      <span className="text-ink">Leading BPO</span>
-      <br className="hidden lg:block" />{" "}
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-envic-400 via-envic-500 to-envic-600 drop-shadow-sm">
-        Solutions.
+      <span className="text-ink">Your Trusted Offshore Partner for</span>{" "}
+      <br className="hidden sm:block" />
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-envic-500 via-emerald-500 to-teal-600 drop-shadow-sm">
+        Next-Gen Growth.
       </span>
     </>
   ),
@@ -388,18 +390,56 @@ export default function LunarGravityCard({
   const massiveAsteroidsRef = useRef<Float32Array>(new Float32Array(75 * 4));
 
   return (
-    <div className={cn("w-full min-h-[700px] md:min-h-screen bg-white flex flex-col md:flex-row relative overflow-hidden", className)}>
+    <div className={cn("w-full min-h-[700px] md:min-h-screen bg-[#091310] flex flex-col md:flex-row relative overflow-hidden text-white", className)}>
       
-      <div className="absolute top-0 left-0 md:inset-y-0 md:left-0 w-full h-[60%] md:h-full md:w-[60%] bg-gradient-to-b md:bg-gradient-to-r from-white via-white/90 to-transparent z-10 pointer-events-none"></div>
+      {/* Dark Shadow & Greenish Blend Layer */}
+      <div className="absolute -left-20 top-1/4 w-[750px] h-[750px] rounded-full bg-emerald-600/20 blur-[140px] pointer-events-none z-0" />
+      <div className="absolute left-1/3 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-teal-500/15 blur-[120px] pointer-events-none z-0" />
+
+      {/* Whitish & Dark Gradient Backdrop Layer */}
+      <div className="absolute top-0 left-0 md:inset-y-0 md:left-0 w-full h-[60%] md:h-full md:w-[65%] bg-gradient-to-r from-[#091310] via-[#091310]/95 to-transparent z-10 pointer-events-none"></div>
 
       {/* Text Container aligned with standard max-w-7xl layout */}
-      <div className="w-full md:w-[50%] flex flex-col justify-center px-6 py-20 sm:px-12 md:pl-[max(3rem,calc((100vw-80rem)/2+2rem))] relative z-20 pointer-events-none">
-        <h2 className="text-[4rem] sm:text-[5rem] lg:text-[6rem] font-extrabold tracking-tight leading-[1] mb-6 max-w-[700px]">
-          {title}
-        </h2>
-        <p className="text-lg md:text-xl text-ink-muted font-medium leading-relaxed max-w-[500px]">
+      <div className="w-full md:w-[52%] flex flex-col justify-center px-6 py-20 sm:px-12 md:pl-[max(3rem,calc((100vw-80rem)/2+2rem))] relative z-20 pointer-events-none">
+        
+        {/* Whitish Eyebrow Badge with Greenish Glow */}
+        <div className="mb-6 inline-flex items-center gap-2.5 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-emerald-300 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.25)] w-max pointer-events-auto backdrop-blur-md">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+          </span>
+          <span>Premier Offshore BPO Partner</span>
+        </div>
+
+        <h1 className="font-display text-[2.4rem] sm:text-[3.2rem] lg:text-[3.8rem] font-extrabold tracking-tight leading-[1.12] mb-5 max-w-[640px] text-white">
+          <span>Scale Your Operations with</span>{" "}
+          <br className="hidden sm:block" />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 drop-shadow-[0_2px_12px_rgba(52,211,153,0.4)]">
+            Premier Offshore Talent.
+          </span>
+        </h1>
+        
+        <p className="text-lg md:text-xl text-slate-300 font-medium leading-relaxed max-w-[520px]">
           {description}
         </p>
+
+        {/* Whitish & Greenish CTAs */}
+        <div className="mt-8 flex flex-wrap items-center gap-4 pointer-events-auto">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-7 py-3.5 font-display text-sm font-bold text-slate-950 shadow-[0_4px_25px_rgba(16,185,129,0.45)] transition-all hover:shadow-[0_6px_30px_rgba(16,185,129,0.6)] hover:scale-[1.03]"
+          >
+            <span>Book a call</span>
+            <ArrowUpRightIcon className="h-4 w-4" />
+          </Link>
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 font-display text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20 hover:border-emerald-400 shadow-xs"
+          >
+            <span>Our Services</span>
+          </Link>
+        </div>
+
       </div>
      
       <div className="relative md:absolute md:right-0 md:top-0 w-full h-[450px] md:h-full md:w-[60%] pointer-events-auto z-0 flex items-center justify-center">

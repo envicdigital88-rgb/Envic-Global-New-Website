@@ -60,18 +60,31 @@ export function Header() {
                 <div className="absolute left-0 top-full hidden w-56 pt-2 group-hover:block">
                   <div className="rounded-xl border border-ink-line bg-white py-2 shadow-lift">
                     {item.children.map((child) => (
-                      <NavLink
-                        key={child.to}
-                        to={child.to}
-                        end={child.to === '/partners'}
-                        className={({ isActive }) =>
-                          `block px-4 py-2 text-sm font-medium transition-colors ${
-                            isActive ? 'bg-envic-50 text-envic-600' : 'text-ink-muted hover:bg-ink-bg hover:text-ink'
-                          }`
-                        }
-                      >
-                        {child.label}
-                      </NavLink>
+                      'external' in child && child.external && child.href ? (
+                        <a
+                          key={child.label}
+                          href={child.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between px-4 py-2 text-sm font-medium text-ink-muted transition-colors hover:bg-ink-bg hover:text-ink"
+                        >
+                          <span>{child.label}</span>
+                          <ArrowUpRightIcon className="h-3.5 w-3.5 opacity-60" />
+                        </a>
+                      ) : (
+                        <NavLink
+                          key={child.to}
+                          to={child.to}
+                          end={child.to === '/partners'}
+                          className={({ isActive }) =>
+                            `block px-4 py-2 text-sm font-medium transition-colors ${
+                              isActive ? 'bg-envic-50 text-envic-600' : 'text-ink-muted hover:bg-ink-bg hover:text-ink'
+                            }`
+                          }
+                        >
+                          {child.label}
+                        </NavLink>
+                      )
                     ))}
                   </div>
                 </div>
@@ -125,17 +138,30 @@ export function Header() {
                     {item.children && (
                       <ul className="ml-4 flex flex-col border-b border-ink-line/70 pb-2">
                         {item.children.map((child) => (
-                          <li key={child.to}>
-                            <NavLink
-                              to={child.to}
-                              end={child.to === '/partners'}
-                              onClick={() => setOpen(false)}
-                              className={({ isActive }) =>
-                              `block py-2 font-display text-base font-medium ${
-                              isActive ? 'text-envic-600' : 'text-ink-muted'}`
-                              }>
-                              {child.label}
-                            </NavLink>
+                          <li key={child.label}>
+                            {'external' in child && child.external && child.href ? (
+                              <a
+                                href={child.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setOpen(false)}
+                                className="flex items-center justify-between py-2 font-display text-base font-medium text-ink-muted hover:text-envic-600"
+                              >
+                                <span>{child.label}</span>
+                                <ArrowUpRightIcon className="h-4 w-4 opacity-60" />
+                              </a>
+                            ) : (
+                              <NavLink
+                                to={child.to}
+                                end={child.to === '/partners'}
+                                onClick={() => setOpen(false)}
+                                className={({ isActive }) =>
+                                `block py-2 font-display text-base font-medium ${
+                                isActive ? 'text-envic-600' : 'text-ink-muted'}`
+                                }>
+                                {child.label}
+                              </NavLink>
+                            )}
                           </li>
                         ))}
                       </ul>
