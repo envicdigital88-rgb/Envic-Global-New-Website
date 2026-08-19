@@ -210,23 +210,33 @@ export const PROCESS = [
 export const TESTIMONIALS = [
 {
   quote:
-  'ENVIC took over our entire inbound queue in a month. Our answer rate went from 61% to 94% and we finally stopped losing customers on hold.',
-  name: 'Rachel Whitmore',
-  role: 'Head of Operations, UK energy supplier'
+  'ENVIC has been one center providing us a great deal of support in helping people with disrepairs in the their property, the best thing about them is the amount of time they give to keep all data intact and how far they go the extra mile to help people, they are one company who are not concerned about their earnings but the empathy towards giving a better home to live for the people of UK.',
+  name: 'Abishek Rathode',
+  role: 'Manager Claims',
+  rating: 4.7
 },
 {
   quote:
-  'The appointment quality is the difference. Their team pre-qualifies properly, so our surveyors stopped wasting half their week on dead visits.',
-  name: 'Daniel Osei',
-  role: 'Sales Director, home improvement group'
+  'ENVIC has been great in leading our marketing campaigns, they increased our sales by 120% while providing a great service.',
+  name: 'Michael Joseph',
+  role: 'Director Operations',
+  rating: 4.7
 },
 {
   quote:
-  'Working with ENVIC feels like having a second office, not a vendor. Weekly reviews are direct, honest and genuinely useful.',
-  name: 'Marissa Cole',
-  role: 'VP Customer Experience, US telecom'
-}];
-
+  'ENVIC has been one of our best centers providing appointments for Loft Insulation, they are efficient and give a great thought towards quality. We are delighted to work with them.',
+  name: 'Robert Webstar',
+  role: 'Head of Center',
+  rating: 4.7
+},
+{
+  quote:
+  'ENVIC has always stood by us to spread renewable energy in UK. They are a great company to work with. The modern ways of marketing they bring in is a joy to work with.',
+  name: 'Ben Mark',
+  role: 'Director Client Services',
+  rating: 4.7
+}
+];
 
 export const CLIENT_LOGOS = [
 'Northgate Energy',
