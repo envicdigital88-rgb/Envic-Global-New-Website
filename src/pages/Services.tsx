@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckIcon, ChevronDownIcon } from 'lucide-react';
+import { ArrowUpRightIcon, CheckIcon, ChevronDownIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SERVICES, SECTORS, PROCESS, FAQS, IMAGES } from '../data/site';
 import { Section, SectionHeading, Reveal, PageHero, PrimaryButton } from '../components/ui';
@@ -39,31 +39,54 @@ export function Services() {
         image={IMAGES.team} />
       
 
-      <Section className="bg-white">
-        <div className="grid gap-5 md:grid-cols-2">
-          {SERVICES.map((service, i) =>
-          <Reveal key={service.slug} delay={i % 2 * 0.08}>
-              <article className="h-full rounded-4xl border border-ink-line p-8 transition-all hover:border-envic-200 hover:shadow-soft">
-                <div className="flex items-start gap-5">
-                  <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-envic-50 text-envic-600">
-                    <service.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h2 className="font-display text-xl font-bold text-ink">{service.title}</h2>
-                    <p className="mt-3 text-sm leading-relaxed text-ink-muted">{service.summary}</p>
-                  </div>
-                </div>
-                <ul className="mt-6 space-y-2.5 border-t border-ink-line pt-6">
-                  {service.points.map((point) =>
-                <li key={point} className="flex items-start gap-3 text-sm text-ink-soft">
-                      <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-envic-500" />
-                      {point}
-                    </li>
-                )}
-                </ul>
-              </article>
-            </Reveal>
-          )}
+      <Section className="relative overflow-hidden bg-ink-bg">
+        <div className="pointer-events-none absolute -right-32 top-16 h-80 w-80 rounded-full border-[40px] border-envic-100/70" />
+        <div className="relative">
+          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+            <SectionHeading
+              eyebrow="What we do"
+              title="The right team for every important conversation"
+              body="Pick the capability you need now. Add the next one when your operation is ready to grow."
+            />
+            <div className="flex shrink-0 items-center gap-4 border-l-2 border-envic-500 pl-5 lg:mb-2">
+              <span className="font-display text-4xl font-bold text-ink">06</span>
+              <span className="max-w-[9rem] text-xs font-semibold uppercase leading-relaxed tracking-[0.14em] text-ink-muted">Core capabilities, one accountable partner</span>
+            </div>
+          </div>
+
+          <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-12">
+            {SERVICES.map((service, i) => {
+              const featured = i === 0;
+              const columnSpan = featured ? 'lg:col-span-7' : i === 1 ? 'lg:col-span-5' : 'lg:col-span-4';
+              return (
+                <Reveal key={service.slug} delay={i * 0.06} className={`h-full ${columnSpan}`}>
+                  <article className={`group relative flex h-full min-h-[21rem] flex-col overflow-hidden rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift sm:p-8 ${
+                    featured ? 'bg-ink text-white' : 'border border-ink-line bg-white text-ink'
+                  }`}>
+                    <div className="flex items-start justify-between gap-5">
+                      <div className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${featured ? 'bg-envic-500 text-white' : 'bg-envic-50 text-envic-600'}`}>
+                        <service.icon className="h-5 w-5" />
+                      </div>
+                      <span className={`font-display text-4xl font-bold leading-none ${featured ? 'text-white/10' : 'text-envic-100'}`}>{String(i + 1).padStart(2, '0')}</span>
+                    </div>
+                    <div className="mt-10">
+                      <h2 className={`font-display text-xl font-bold ${featured ? 'text-white' : 'text-ink'}`}>{service.title}</h2>
+                      <p className={`mt-3 max-w-xl text-sm leading-relaxed ${featured ? 'text-white/70' : 'text-ink-muted'}`}>{service.summary}</p>
+                    </div>
+                    <ul className={`mt-auto space-y-2.5 border-t pt-6 ${featured ? 'border-white/10' : 'border-ink-line'}`}>
+                      {service.points.map((point) =>
+                        <li key={point} className={`flex items-start gap-3 text-sm ${featured ? 'text-white/80' : 'text-ink-soft'}`}>
+                          <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-envic-500" />
+                          {point}
+                        </li>
+                      )}
+                    </ul>
+                    <ArrowUpRightIcon className={`absolute bottom-7 right-7 h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 ${featured ? 'text-envic-400' : 'text-envic-500'}`} />
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </Section>
 

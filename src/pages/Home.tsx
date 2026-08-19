@@ -129,8 +129,8 @@ export function Home() {
             {/* Card 1 */}
             <Reveal delay={0} className="h-full">
               <div className="group relative rounded-[2rem] overflow-hidden bg-white border border-envic-100 shadow-xl hover:shadow-2xl hover:shadow-envic-500/15 transition-all duration-500 h-[340px]">
-                <img src={IMAGES.office} alt="Easy System" className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-b from-white via-white/20 to-ink/85" />
+                <img src={IMAGES.office} alt="Easy System" className="absolute inset-0 w-full h-full object-cover opacity-100 transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-ink/80" />
                 <div className="absolute top-5 right-5 font-display text-6xl font-black text-envic-100 select-none group-hover:text-envic-200 transition-colors duration-500">01</div>
                 <div className="absolute inset-0 p-7 flex flex-col justify-end">
                   <div className="bg-envic-500 rounded-2xl p-3.5 mb-4 w-max text-white shadow-lg shadow-envic-500/40 transition-transform duration-500 group-hover:scale-110">
@@ -149,8 +149,8 @@ export function Home() {
             {/* Card 2 */}
             <Reveal delay={0.15} className="h-full">
               <div className="group relative rounded-[2rem] overflow-hidden bg-white border border-envic-100 shadow-xl hover:shadow-2xl hover:shadow-envic-500/15 transition-all duration-500 h-[340px]">
-                <img src={IMAGES.team} alt="Customer Support" className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-b from-white via-white/20 to-ink/85" />
+                <img src={IMAGES.team} alt="Customer Support" className="absolute inset-0 w-full h-full object-cover opacity-100 transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-ink/80" />
                 <div className="absolute top-5 right-5 font-display text-6xl font-black text-envic-100 select-none group-hover:text-envic-200 transition-colors duration-500">02</div>
                 <div className="absolute inset-0 p-7 flex flex-col justify-end">
                   <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-3 mb-4 w-max text-white transition-all duration-500 group-hover:bg-envic-500 group-hover:border-envic-400 group-hover:scale-110">
@@ -169,8 +169,8 @@ export function Home() {
             {/* Card 3 */}
             <Reveal delay={0.25} className="h-full">
               <div className="group relative rounded-[2rem] overflow-hidden bg-white border border-envic-100 shadow-xl hover:shadow-2xl hover:shadow-envic-500/15 transition-all duration-500 h-[340px]">
-                <img src={IMAGES.about} alt="BPO Services" className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-b from-white via-white/20 to-ink/85" />
+                <img src={IMAGES.about} alt="BPO Services" className="absolute inset-0 w-full h-full object-cover opacity-100 transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-ink/80" />
                 <div className="absolute top-5 right-5 font-display text-6xl font-black text-envic-100 select-none group-hover:text-envic-200 transition-colors duration-500">03</div>
                 <div className="absolute inset-0 p-7 flex flex-col justify-end">
                   <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-3 mb-4 w-max text-white transition-all duration-500 group-hover:bg-envic-500 group-hover:border-envic-400 group-hover:scale-110">
