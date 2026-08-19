@@ -239,14 +239,13 @@ export const TESTIMONIALS = [
 ];
 
 export const CLIENT_LOGOS = [
-'Northgate Energy',
-'Brightwire',
-'Halcyon Home',
-'Meridian Telecom',
-'SolarPath',
-'Corvus Utilities',
-'Blue Harbour',
-'Ashford & Co'];
+  'ENVIC RCM',
+  'Siraawata',
+  'ENVIC Digital',
+  'ENVIC RCM',
+  'Siraawata',
+  'ENVIC Digital',
+];
 
 
 export const CASE_STUDIES = [

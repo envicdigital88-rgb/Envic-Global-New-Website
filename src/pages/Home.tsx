@@ -5,6 +5,7 @@ import { ArrowRightIcon, CheckIcon, QuoteIcon, ChevronDownIcon } from 'lucide-re
 import { BRAND, IMAGES, SERVICES, SECTORS, STATS, PROCESS, TESTIMONIALS, CLIENT_LOGOS } from '../data/site';
 import { Section, SectionHeading, Reveal, PrimaryButton, GhostButton, Eyebrow } from '../components/ui';
 import { Component as LunarGravityCard } from '../components/ui/lunar-gravity-card';
+import { Component as CelestialOrrery } from '../components/ui/celestial-orrery';
 import { CTABand } from '../components/CTABand';
 import TestimonialsSection from '../components/ui/testimonials-3';
 
@@ -74,7 +75,7 @@ export function Home() {
       <section className="w-full border-y border-ink-line bg-white py-8 overflow-hidden">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 mb-6">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-ink-muted">
-            Trusted by teams across energy, telecom and home improvement
+            Our Trusted Partners
           </p>
         </div>
         
@@ -90,109 +91,151 @@ export function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <Section className="bg-white">
-        <div className="text-center mb-14">
-          <Eyebrow>Why Choose Us</Eyebrow>
-          <h2 className="mt-3 font-display text-4xl font-extrabold tracking-tight text-ink">
-            Lower Your Costs. Boost Your Leads.<br className="hidden sm:block" /> Simplify Your Business with ENVIC
-          </h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            {
-              icon: (
-                <svg className="h-8 w-8 text-envic-500" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-4-4h8M9 3h6a2 2 0 012 2v1H7V5a2 2 0 012-2zM3 10h18v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9z" />
-                </svg>
-              ),
-              title: 'Easy System & Trusted: Save Your Money',
-              img: IMAGES.office,
-            },
-            {
-              icon: (
-                <svg className="h-8 w-8 text-envic-500" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-1a4 4 0 00-4-4h-1M9 20H4v-1a4 4 0 014-4h1m6-4a4 4 0 11-8 0 4 4 0 018 0zm6 0a3 3 0 11-6 0 3 3 0 016 0zM3 10a3 3 0 116 0 3 3 0 01-6 0z" />
-                </svg>
-              ),
-              title: 'Dedicated Customer Support Team Members',
-              img: IMAGES.team,
-            },
-            {
-              icon: (
-                <svg className="h-8 w-8 text-envic-500" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M20 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z" />
-                </svg>
-              ),
-              title: 'Professional Corporate BPO Services',
-              img: IMAGES.about,
-            },
-          ].map((item, i) => (
-            <Reveal key={item.title} delay={i * 0.08}>
-              <div className="group rounded-3xl border border-ink-line bg-white overflow-hidden hover:-translate-y-1 hover:shadow-soft hover:border-envic-200 transition-all">
-                <div className="flex items-center gap-3 px-6 pt-6 pb-4">
-                  <div className="flex-shrink-0 h-12 w-12 rounded-2xl bg-envic-50 flex items-center justify-center transition-colors group-hover:bg-envic-500 group-hover:[&_svg]:text-white">
-                    {item.icon}
-                  </div>
-                  <h3 className="font-display text-base font-bold text-ink leading-snug">{item.title}</h3>
+      {/* Why Choose Us - Premium Redesign */}
+      <section className="relative bg-white py-14 sm:py-20 overflow-hidden">
+        {/* Decorative blobs */}
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-envic-50 rounded-full blur-3xl opacity-60 pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-envic-50 rounded-full blur-3xl opacity-40 pointer-events-none" />
+
+        <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8">
+          {/* Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+            <Reveal>
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-envic-200 bg-envic-50 px-4 py-1.5 mb-5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-envic-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-envic-500"></span>
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-envic-700">Why Choose Us</span>
                 </div>
-                <div className="px-0">
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-52 object-cover"
-                  />
+                <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-ink leading-[1.1]">
+                  Lower Your Costs.<br />
+                  <span className="text-envic-600">Boost Your Leads.</span>{' '}
+                  Simplify Your Business.
+                </h2>
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-sm leading-relaxed text-ink-muted max-w-sm lg:text-right">
+                Everything your business needs — delivered with precision, speed, and care by the ENVIC Global team.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+            {/* Card 1 */}
+            <Reveal delay={0} className="h-full">
+              <div className="group relative rounded-[2rem] overflow-hidden bg-white border border-envic-100 shadow-xl hover:shadow-2xl hover:shadow-envic-500/15 transition-all duration-500 h-[340px]">
+                <img src={IMAGES.office} alt="Easy System" className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white via-white/20 to-ink/85" />
+                <div className="absolute top-5 right-5 font-display text-6xl font-black text-envic-100 select-none group-hover:text-envic-200 transition-colors duration-500">01</div>
+                <div className="absolute inset-0 p-7 flex flex-col justify-end">
+                  <div className="bg-envic-500 rounded-2xl p-3.5 mb-4 w-max text-white shadow-lg shadow-envic-500/40 transition-transform duration-500 group-hover:scale-110">
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-4-4h8M9 3h6a2 2 0 012 2v1H7V5a2 2 0 012-2zM3 10h18v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-display text-base font-bold text-white leading-snug">Easy System & Trusted: Save Your Money</h3>
+                  <p className="text-xs text-white/60 leading-relaxed mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Streamlined processes that reduce overhead and deliver real savings from day one.</p>
+                  <div className="h-[2px] w-8 bg-envic-500 rounded-full mt-4 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 delay-100" />
+                </div>
+                <div className="absolute inset-0 rounded-[2rem] ring-1 ring-envic-100 group-hover:ring-envic-400/50 transition-all duration-500" />
+              </div>
+            </Reveal>
+
+            {/* Card 2 */}
+            <Reveal delay={0.15} className="h-full">
+              <div className="group relative rounded-[2rem] overflow-hidden bg-white border border-envic-100 shadow-xl hover:shadow-2xl hover:shadow-envic-500/15 transition-all duration-500 h-[340px]">
+                <img src={IMAGES.team} alt="Customer Support" className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white via-white/20 to-ink/85" />
+                <div className="absolute top-5 right-5 font-display text-6xl font-black text-envic-100 select-none group-hover:text-envic-200 transition-colors duration-500">02</div>
+                <div className="absolute inset-0 p-7 flex flex-col justify-end">
+                  <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-3 mb-4 w-max text-white transition-all duration-500 group-hover:bg-envic-500 group-hover:border-envic-400 group-hover:scale-110">
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-1a4 4 0 00-4-4h-1M9 20H4v-1a4 4 0 014-4h1m6-4a4 4 0 11-8 0 4 4 0 018 0zm6 0a3 3 0 11-6 0 3 3 0 016 0zM3 10a3 3 0 116 0 3 3 0 01-6 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-display text-base font-bold text-white leading-snug">Dedicated Customer Support Team Members</h3>
+                  <p className="text-xs text-white/60 leading-relaxed mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Expert agents committed to delivering outstanding customer experiences every time.</p>
+                  <div className="h-[2px] w-8 bg-envic-500 rounded-full mt-4 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 delay-100" />
+                </div>
+                <div className="absolute inset-0 rounded-[2rem] ring-1 ring-envic-100 group-hover:ring-envic-400/50 transition-all duration-500" />
+              </div>
+            </Reveal>
+
+            {/* Card 3 */}
+            <Reveal delay={0.25} className="h-full">
+              <div className="group relative rounded-[2rem] overflow-hidden bg-white border border-envic-100 shadow-xl hover:shadow-2xl hover:shadow-envic-500/15 transition-all duration-500 h-[340px]">
+                <img src={IMAGES.about} alt="BPO Services" className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white via-white/20 to-ink/85" />
+                <div className="absolute top-5 right-5 font-display text-6xl font-black text-envic-100 select-none group-hover:text-envic-200 transition-colors duration-500">03</div>
+                <div className="absolute inset-0 p-7 flex flex-col justify-end">
+                  <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-3 mb-4 w-max text-white transition-all duration-500 group-hover:bg-envic-500 group-hover:border-envic-400 group-hover:scale-110">
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M20 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-display text-base font-bold text-white leading-snug">Professional Corporate BPO Services</h3>
+                  <p className="text-xs text-white/60 leading-relaxed mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">End-to-end business process solutions tailored to scale with your company's needs.</p>
+                  <div className="h-[2px] w-8 bg-envic-500 rounded-full mt-4 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 delay-100" />
+                </div>
+                <div className="absolute inset-0 rounded-[2rem] ring-1 ring-envic-100 group-hover:ring-envic-400/50 transition-all duration-500" />
+              </div>
+            </Reveal>
+
+          </div>
+        </div>
+      </section>
+
+      {/* About ENVIC Global */}
+      <CelestialOrrery>
+        <div className="relative w-full py-24 lg:py-32 flex items-center justify-center min-h-[80vh]">
+          <div className="mx-auto w-full max-w-4xl px-5 sm:px-8">
+            <Reveal>
+              <div className="relative overflow-hidden p-8 sm:p-14 lg:p-20 text-center">
+                
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-envic-400 mb-6 drop-shadow-md">
+                  About ENVIC Global
+                </p>
+                <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white mb-8 drop-shadow-lg">
+                  Empowering UK & US Businesses with Smart Outsourcing
+                </h2>
+                
+                <p className="mx-auto text-base sm:text-lg leading-relaxed text-white/80 max-w-2xl mb-12 drop-shadow-md">
+                  ENVIC Global is a Sri Lanka-based outsourcing company specializing in delivering high-quality voice support, back-office operations, marketing services, and IT-enabled solutions. With deep expertise across industries like energy, telecom, home improvement, and finance, we help clients reduce costs, scale efficiently, and build long-term partnerships.
+                </p>
+                
+                <div className="flex flex-wrap justify-center gap-4 sm:gap-8 mb-12">
+                  {['Leading BPO Services', 'Trusted Expertise', 'Commitment to Excellence'].map((point) => (
+                    <div key={point} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 backdrop-blur-sm">
+                      <CheckIcon className="h-4 w-4 text-envic-400" />
+                      <span className="text-sm font-medium text-white">{point}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Link 
+                    to="/about" 
+                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-envic-500 px-8 py-4 text-sm font-bold text-white shadow-soft transition-all hover:bg-envic-400 hover:shadow-lift w-full sm:w-auto"
+                  >
+                    Meet Our Team <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                  <Link 
+                    to="/contact" 
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white/15 w-full sm:w-auto"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* About ENVIC Global */}
-      <Section className="bg-ink-bg">
-        <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-          <Reveal>
-            <div className="relative">
-              <img
-                src={IMAGES.cta}
-                alt="About ENVIC Global"
-                className="aspect-[4/3] w-full rounded-4xl object-cover shadow-soft"
-              />
-              <div className="absolute -right-4 -bottom-8 hidden rounded-3xl bg-envic-500 px-6 py-5 text-white shadow-lift sm:block">
-                <p className="font-display text-3xl font-extrabold">5+</p>
-                <p className="text-xs font-medium text-white/85">Years Of Experience</p>
-              </div>
-            </div>
-          </Reveal>
-          <div>
-            <SectionHeading
-              eyebrow="About ENVIC Global"
-              title="Empowering UK & US Businesses with Smart Outsourcing"
-              body="ENVIC Global is a Sri Lanka-based outsourcing company supporting businesses across the UK and US. We specialize in delivering high-quality voice support, back-office operations, marketing services, and IT-enabled solutions to help our clients reduce costs and scale efficiently."
-            />
-            <p className="mt-4 text-sm leading-relaxed text-ink-muted max-w-lg">
-              With deep expertise across industries like energy, telecom, home improvement, finance, healthcare, and travel, our team is dedicated to providing exceptional service and building long-term partnerships.
-            </p>
-            <ul className="mt-8 space-y-3">
-              {['Leading BPO Services', 'Trusted Expertise', 'Commitment to Excellence'].map((point) => (
-                <li key={point} className="flex items-center gap-3">
-                  <CheckIcon className="h-5 w-5 flex-shrink-0 text-envic-500" />
-                  <span className="text-sm font-semibold text-ink">{point}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10 flex gap-4 flex-wrap">
-              <Link to="/about" className="inline-flex items-center gap-2 rounded-full bg-envic-500 px-6 py-3 text-sm font-bold text-white hover:bg-envic-600 transition-colors">
-                Meet Our Team <ArrowRightIcon className="h-4 w-4" />
-              </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-ink-line bg-white px-6 py-3 text-sm font-bold text-ink hover:border-envic-300 transition-colors">
-                Contact Us <ArrowRightIcon className="h-4 w-4" />
-              </Link>
-            </div>
           </div>
         </div>
-      </Section>
+      </CelestialOrrery>
 
       {/* Stats */}
       <Section className="bg-white">

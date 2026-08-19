@@ -1,7 +1,9 @@
 import React from 'react';
 import { IMAGES, STATS, VALUES, BRAND } from '../data/site';
-import { Section, SectionHeading, Reveal, PageHero } from '../components/ui';
+import { Section, SectionHeading, Reveal, PageHero, Eyebrow } from '../components/ui';
+import TeamCarousel from '../components/ui/team-carousel';
 import { CTABand } from '../components/CTABand';
+import { LinkedinIcon } from 'lucide-react';
 
 const TIMELINE = [
 { year: '2019', title: 'Founded in Colombo', body: 'Started with a nine-seat pilot supporting a single UK energy broker.' },
@@ -9,12 +11,80 @@ const TIMELINE = [
 { year: '2023', title: 'Dedicated pods model', body: 'Moved to named, client-owned teams with their own leads and QA analysts.' },
 { year: '2025', title: '250+ specialists', body: 'Three delivery floors, multichannel coverage and a partner network across two markets.' }];
 
-
-const LEADERS = [
-{ name: 'Nuwan Perera', role: 'Managing Director', bio: 'Fifteen years across UK utilities and offshore delivery leadership.' },
-{ name: 'Aisha Rahman', role: 'Head of Operations', bio: 'Builds the pods, sets the SLAs and owns every weekly review.' },
-{ name: 'James Whitfield', role: 'UK Client Director', bio: 'Your first call in London — commercial, contracts and escalations.' }];
-
+const TEAM = [
+  {
+    name: 'Damien Joseph',
+    role: 'Director',
+    department: 'Leadership',
+    bio: 'Leads ENVIC Global with a passion for building offshore teams that punch above their weight. Damien brings strategic vision and hands-on energy to every client relationship.',
+    color: 'from-envic-500 to-emerald-600',
+    photo: '/team/damien-joseph.jpg',
+  },
+  {
+    name: 'Isuru Nilanka',
+    role: 'Strategic Manager — Operations',
+    department: 'Operations',
+    bio: 'Drives operational efficiency and strategic growth across all delivery teams. Isuru ensures every process runs smoothly and every SLA is consistently met.',
+    color: 'from-teal-500 to-cyan-600',
+    photo: '/team/isuru-nilanka.jpg',
+  },
+  {
+    name: 'Chathurka Induwara',
+    role: 'Business Development Specialist',
+    department: 'Business Development',
+    bio: 'Identifies new market opportunities and builds lasting client partnerships. Chathurka is the engine behind ENVIC\'s expanding client portfolio.',
+    color: 'from-sky-500 to-blue-600',
+    photo: '/team/chathurka-induwara.jpg',
+  },
+  {
+    name: 'Deshan Nethmina',
+    role: 'Web Solutions Specialist',
+    department: 'Technology',
+    bio: 'Crafts high-performance web experiences that bring client brands to life. Deshan combines clean code with sharp design instincts.',
+    color: 'from-violet-500 to-purple-600',
+    photo: '/team/deshan-nethmina.jpg',
+  },
+  {
+    name: 'Heshan Rajamanthri',
+    role: 'Web Solutions Specialist',
+    department: 'Technology',
+    bio: 'Builds robust, scalable web solutions with a keen eye for user experience. Heshan ensures every digital product is fast, reliable and impactful.',
+    color: 'from-indigo-500 to-blue-700',
+    photo: '/team/heshan-rajamanthri.jpg',
+  },
+  {
+    name: 'Nuwangi Mahesha',
+    role: 'Web Solutions Specialist',
+    department: 'Technology',
+    bio: 'Blends creative design with technical expertise to deliver websites that convert. Nuwangi is passionate about making the web work beautifully for clients.',
+    color: 'from-pink-500 to-rose-600',
+    photo: '/team/nuwangi-mahesha.jpg',
+  },
+  {
+    name: 'Nisula Dinayana',
+    role: 'Business Development Specialist',
+    department: 'Business Development',
+    bio: 'Passionate about connecting businesses with the right solutions. Nisula drives growth through strategic outreach and deep client understanding.',
+    color: 'from-orange-500 to-amber-600',
+    photo: '/team/nisula-dinayana.jpg',
+  },
+  {
+    name: 'Zahra Faizal',
+    role: 'Business Development Specialist',
+    department: 'Business Development',
+    bio: 'Builds meaningful client relationships and unlocks new revenue streams. Zahra combines market insight with a collaborative approach to business growth.',
+    color: 'from-fuchsia-500 to-purple-600',
+    photo: '/team/zahra-faizal.jpg',
+  },
+  {
+    name: 'Andrew Ariyathilake',
+    role: 'Business Development Specialist',
+    department: 'Business Development',
+    bio: 'Energetic and client-focused, Andrew excels at turning conversations into long-term partnerships that drive real results for ENVIC and its clients.',
+    color: 'from-lime-500 to-green-600',
+    photo: '/team/andrew-ariyathilake.jpg',
+  },
+];
 
 export function About() {
   return (
@@ -130,24 +200,8 @@ export function About() {
         </ol>
       </Section>
 
-      {/* Leadership */}
-      <Section className="bg-white">
-        <SectionHeading eyebrow="Leadership" title="The people accountable for your account" />
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
-          {LEADERS.map((person, i) =>
-          <Reveal key={person.name} delay={i * 0.08}>
-              <article className="h-full rounded-3xl border border-ink-line bg-ink-bg p-8">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-envic-500 font-display text-lg font-bold text-white">
-                  {person.name.split(' ').map((n) => n[0]).join('')}
-                </div>
-                <h3 className="mt-6 font-display text-lg font-bold text-ink">{person.name}</h3>
-                <p className="text-sm font-medium text-envic-600">{person.role}</p>
-                <p className="mt-3 text-sm leading-relaxed text-ink-muted">{person.bio}</p>
-              </article>
-            </Reveal>
-          )}
-        </div>
-      </Section>
+      {/* Our Team */}
+      <TeamCarousel team={TEAM} />
 
       <CTABand title="Want to see how we would run your operation?" />
     </div>);
