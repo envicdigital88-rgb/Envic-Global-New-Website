@@ -414,6 +414,54 @@ export function Home() {
         <TestimonialsSection />
       </Section>
 
+      {/* Popular Clients */}
+      <Section className="bg-white">
+        <div className="text-center mb-14">
+          <Eyebrow>Popular Clients</Eyebrow>
+          <h2 className="mt-3 font-display text-4xl font-extrabold tracking-tight text-ink">
+            We've 15+ Global Premium Clients
+          </h2>
+        </div>
+        <div className="relative overflow-hidden">
+          {/* Gradient fade edges */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-white to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-white to-transparent" />
+          {/* Infinite scroll strip */}
+          <div className="flex gap-8 animate-marquee hover:[animation-play-state:paused] w-max">
+            {[
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/IMG-20250728-WA0002-150x150.jpg', alt: 'Client 1' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/IMG-20250728-WA0006-150x150.jpg', alt: 'Client 2' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/IMG-20250728-WA0008.jpg', alt: 'Client 3' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/IMG-20250728-WA0003-150x150.jpg', alt: 'Client 4' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/WhatsApp-Image-2025-07-26-at-17.07.37_94e6e99c-150x150.jpg', alt: 'Client 5' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/CLIENT-ROXY-150x150.png', alt: 'Client ROXY' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/Untitled-design-1-150x150.jpg', alt: 'Client 7' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/Untitled-design-150x150.jpg', alt: 'Client 8' },
+              // duplicate for seamless loop
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/IMG-20250728-WA0002-150x150.jpg', alt: 'Client 1' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/IMG-20250728-WA0006-150x150.jpg', alt: 'Client 2' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/IMG-20250728-WA0008.jpg', alt: 'Client 3' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/IMG-20250728-WA0003-150x150.jpg', alt: 'Client 4' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/WhatsApp-Image-2025-07-26-at-17.07.37_94e6e99c-150x150.jpg', alt: 'Client 5' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/CLIENT-ROXY-150x150.png', alt: 'Client ROXY' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/Untitled-design-1-150x150.jpg', alt: 'Client 7' },
+              { src: 'https://envicglobal.com/wp-content/uploads/2025/08/Untitled-design-150x150.jpg', alt: 'Client 8' },
+            ].map((client, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-32 h-32 rounded-2xl border border-ink-line bg-white shadow-sm overflow-hidden flex items-center justify-center p-3 hover:border-envic-300 hover:shadow-soft transition-all"
+              >
+                <img
+                  src={client.src}
+                  alt={client.alt}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       <CTABand />
     </div>);
 
