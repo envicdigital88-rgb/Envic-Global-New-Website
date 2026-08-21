@@ -20,6 +20,13 @@ const TEAM = [
     photo: '/team/damien-joseph.jpg',
   },
   {
+    name: 'Minhar Azeez',
+    role: 'Director',
+    department: 'Leadership',
+    color: 'from-emerald-500 to-teal-600',
+    photo: '/team/minhar-azeez.jpg',
+  },
+  {
     name: 'Isuru Nilanka',
     role: 'Strategic Manager — Operations',
     department: 'Operations',
@@ -78,13 +85,82 @@ const TEAM = [
 ];
 
 export function About() {
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+  
+  const heroImages = [
+    '/team/FullTeam.jpeg',
+    '/team/image1.jpeg',
+    '/team/image2.jpeg',
+    '/team/image3.jpeg',
+    '/team/image4.jpeg',
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 4000); // Change image every 4 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="w-full bg-white">
-      <PageHero
-        eyebrow="About us"
-        title="An offshore team that behaves like an in-house one"
-        body="ENVIC Global is a Sri Lanka based BPO built by operators who have sat on the client side. We know what makes outsourcing fail — so we designed the opposite."
-        image={IMAGES.about} />
+      {/* Hero Section with Background Swipe Effect */}
+      <section className="relative w-full overflow-hidden">
+        {/* Animated Background Images */}
+        <div className="absolute inset-0">
+          {heroImages.map((image, index) => (
+            <div
+              key={image}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                index === currentImageIndex 
+                  ? 'opacity-100 scale-100' 
+                  : 'opacity-0 scale-105'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`Team ${index + 1}`}
+                className="h-full w-full object-cover object-center"
+              />
+              {/* Lighter gradient overlay - only on left side for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/40 to-transparent" />
+            </div>
+          ))}
+        </div>
+
+        {/* Content - Positioned on left side only */}
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-28 sm:px-8 lg:py-40">
+          <div className="max-w-xl">
+            <Eyebrow tone="dark">About us</Eyebrow>
+            <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-5xl">
+              Your Trusted Partner in Business Excellence
+            </h1>
+            <p className="mt-6 text-base leading-relaxed text-white/95 sm:text-lg">
+              At ENVIC Global, we redefine outsourcing with dedicated teams that seamlessly integrate with your business.
+            </p>
+            
+            {/* Image indicators */}
+            <div className="mt-8 flex gap-2">
+              {heroImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    index === currentImageIndex 
+                      ? 'w-8 bg-envic-400' 
+                      : 'w-1.5 bg-white/40 hover:bg-white/60'
+                  }`}
+                  aria-label={`View image ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Decorative gradient overlay at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
+      </section>
       
 
       <Section className="bg-white">
